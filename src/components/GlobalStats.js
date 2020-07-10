@@ -45,7 +45,7 @@ export default function GlobalStats() {
                     <Card>
                         <CardContent>
                         <Typography>Confirmed</Typography>
-                        <CountUp start={0} end={dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Confirmed} duration={2} separator=','/>
+                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Confirmed}
                         </CardContent>
                     </Card>
                 </Grid>
@@ -53,7 +53,7 @@ export default function GlobalStats() {
                     <Card>
                         <CardContent>
                         <Typography>Active</Typography>
-                        <CountUp start={0} end={dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Active} duration={2} separator=','/>
+                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Active}
                         </CardContent>
                     </Card>
                 </Grid>
@@ -61,7 +61,7 @@ export default function GlobalStats() {
                     <Card>
                         <CardContent>
                         <Typography>Recovered</Typography>
-                        <CountUp start={0} end={dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Recovered} duration={2} separator=','/>
+                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Recovered}
                         </CardContent>
                     </Card>
                 </Grid>
@@ -69,7 +69,7 @@ export default function GlobalStats() {
                     <Card>
                         <CardContent>
                         <Typography>Deaths</Typography>
-                        <CountUp start={0} end={dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Deaths} duration={2} separator=','/>
+                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Deaths}
                         </CardContent>
                     </Card>
                 </Grid>

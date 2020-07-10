@@ -49,7 +49,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent>
                             <Typography>Infected</Typography>
                             <Typography>
-                                <CountUp start={0} end={dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Confirmed} duration={2} separator=','/>
+                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Confirmed}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -59,7 +59,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent>
                             <Typography>Active</Typography>
                             <Typography>
-                                <CountUp start={0} end={dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Active} duration={2} separator=','/>
+                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Active}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -69,7 +69,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent>
                             <Typography>Recovered</Typography>
                             <Typography>
-                                <CountUp start={0} end={dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Recovered} duration={2} separator=','/>
+                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Recovered}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -79,7 +79,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent>
                             <Typography>Deaths</Typography>
                             <Typography>
-                                <CountUp start={0} end={dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Deaths} duration={2} separator=','/>
+                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Deaths}
                             </Typography>
                         </CardContent>
                     </Card>

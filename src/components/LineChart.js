@@ -9,31 +9,12 @@ export default function LineChart() {
         async function fetchCountryData() {
             setDataLoading(true)
             const apiResponse = await fetch('https://covid19.mathdro.id/api/daily')
-            // , {
-            //     method: 'POST',
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify({
-            //         query: `
-            //             query {
-            //                 country(country: $code) {
-            //                     Summary {
-            //                         Country_Region
-            //                         Confirmed
-            //                         Deaths
-            //                         Recovered
-            //                         Last_Update
-            //                         Active
-            //                     }
-            //                 }
-            //             }
-            //         `,
-            //         variables: {code: countryCode}
-            //     })
-            // })
             const apiData = await apiResponse.json()
             
             const modData = await apiData.map( (data) => ({
                 confirmed: data.confirmed.total,
+                deaths: data.deaths.total,
+                date: data.reportDate
             }))
             setGlobalData(modData)
             console.log("apiData", apiData)
@@ -46,14 +27,14 @@ export default function LineChart() {
     console.log(globalData, "global")
 
     const lineChart = (
-        globalData ? (
+        globalData[0] ? (
           <Line
             data={{
               labels: globalData.map(({ date }) => date),
               datasets: [{
                 data: globalData.map((data) => data.confirmed),
                 label: 'Infected',
-                borderColor: '#3333ff',
+                borderColor: 'blue',
                 fill: true,
               }, {
                 data: globalData.map((data) => data.deaths),

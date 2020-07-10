@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "babel-plugin-styled-components": "^1.10.7",
     "chart.js": "^2.9.3",
     "gatsby": "^2.23.12",

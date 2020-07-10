@@ -4,10 +4,15 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import { Card } from '@material-ui/core';
 
+import PublicIcon from '@material-ui/icons/Public';
+import LanguageIcon from '@material-ui/icons/Language';
+
 const useStyles = makeStyles({
   root: {
       position: 'relative',
       alignItems: 'center',
+      paddingTop: `20px`,
+      paddingBottom: `10px`,
       boxShadow: "none",
       borderRadius: "5px 5px 0 0"
   },
@@ -28,8 +33,8 @@ export default function Navbar({screenConfig}) {
       className={classes.root}
       component={Card}
     >
-      <BottomNavigationAction label="Global" />
-      <BottomNavigationAction label="Countries" />
+      <BottomNavigationAction label="Global" icon={ <LanguageIcon/> } />
+      <BottomNavigationAction label="Countries" icon={ <PublicIcon/> } />
       
     </BottomNavigation>
   );
