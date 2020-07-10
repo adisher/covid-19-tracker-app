@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         alignItems: `center`,
         display: `flex`,
         justifyContent: `center`,
-        backgroundColor: `mintcream`
+        backgroundColor: `mintcream`,
     },
     cardContent: {
         display: `flex`, 
@@ -59,41 +59,41 @@ export default function CountryStats({countryCode}) {
         <>
         {console.log("CountryData: ", countryData)}
             <Grid container spacing={3}>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Infected</Typography>
-                            <Typography variant="h6">
+                            <Typography style={{color: `blue`}} variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Confirmed}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Active</Typography>
-                            <Typography variant="h6">
+                            <Typography style={{color: `darkOrange`}} variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Active}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Recovered</Typography>
-                            <Typography variant="h6">
+                            <Typography style={{color: `green`}} variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Recovered}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Deaths</Typography>
-                            <Typography variant="h6">
+                            <Typography style={{color: `red`}} variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Deaths}
                             </Typography>
                         </CardContent>

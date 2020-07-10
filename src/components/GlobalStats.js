@@ -56,41 +56,41 @@ export default function GlobalStats() {
         <>
         <br/>
             <Grid container spacing={3}>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
-                            <Typography variant="caption2">Confirmed</Typography>
-                            <Typography variant="h6">
+                            <Typography variant="caption2">Infected</Typography>
+                            <Typography style={{color: `blue`}} variant="h6">
                                 {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Confirmed}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Active</Typography>
-                            <Typography variant="h6">
+                            <Typography style={{color: `darkOrange`}} variant="h6">
                                 {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Active}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                         <Typography variant="caption2">Recovered</Typography>
-                        <Typography variant="h6">
+                        <Typography style={{color: `green`}} variant="h6">
                             {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Recovered}
                         </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                         <Typography variant="caption2">Deaths</Typography>
-                        <Typography variant="h6">
+                        <Typography style={{color: `red`}} variant="h6">
                             {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Deaths}
                         </Typography>
                         </CardContent>
