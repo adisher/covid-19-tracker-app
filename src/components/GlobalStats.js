@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import CountUp from 'react-countup';
-import { Grid, Card, CardContent, Typography } from '@material-ui/core'
+import { Grid, Card, CardContent, Typography, makeStyles } from '@material-ui/core'
 import LineChart from './LineChart';
 
+const useStyles = makeStyles({
+    card: {
+        position: `relative`,
+        alignItems: `center`,
+        display: `flex`,
+        justifyContent: `center`,
+        backgroundColor: `mintcream`
+    },
+    cardContent: {
+        display: `flex`, 
+        alignItems: `center`, 
+        flexDirection: `column`
+    }
+});
+
 export default function GlobalStats() {
+    const classes = useStyles();
     const [globalData, setGlobalData] = useState()
     const [dataLoading, setDataLoading] = useState(false)
 
@@ -42,34 +57,42 @@ export default function GlobalStats() {
         <br/>
             <Grid container spacing={3}>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                        <Typography>Confirmed</Typography>
-                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Confirmed}
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="caption2">Confirmed</Typography>
+                            <Typography variant="h6">
+                                {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Confirmed}
+                            </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                        <Typography>Active</Typography>
-                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Active}
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="caption2">Active</Typography>
+                            <Typography variant="h6">
+                                {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Active}
+                            </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                        <Typography>Recovered</Typography>
-                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Recovered}
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                        <Typography variant="caption2">Recovered</Typography>
+                        <Typography variant="h6">
+                            {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Recovered}
+                        </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                        <Typography>Deaths</Typography>
-                        {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Deaths}
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                        <Typography variant="caption2">Deaths</Typography>
+                        <Typography variant="h6">
+                            {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Deaths}
+                        </Typography>
                         </CardContent>
                     </Card>
                 </Grid>

@@ -52,10 +52,10 @@ export default function BarChart({countryCode}) {
                             `red`
                         ],
                         data: [
-                            dataLoading? `loading...` : countryData && countryData.data && countryData.data.country.Summary.Confirmed,
-                            dataLoading? `loading...` : countryData && countryData.data && countryData.data.country.Summary.Active, 
-                            dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Recovered, 
-                            dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Deaths
+                            countryData && countryData.data && countryData.data.country.Summary.Confirmed,
+                            countryData && countryData.data && countryData.data.country.Summary.Active, 
+                            countryData && countryData.data && countryData.data.country.Summary.Recovered, 
+                            countryData && countryData.data && countryData.data.country.Summary.Deaths
                         ]
                     }],
                 }}

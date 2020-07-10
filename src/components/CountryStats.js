@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import CountUp from 'react-countup';
-import { Grid, Card, CardContent, Typography } from '@material-ui/core'
+import { Grid, Card, CardContent, Typography, makeStyles } from '@material-ui/core'
 import BarChart from './BarChart';
 
+const useStyles = makeStyles({
+    card: {
+        position: `relative`,
+        alignItems: `center`,
+        display: `flex`,
+        justifyContent: `center`,
+        backgroundColor: `mintcream`
+    },
+    cardContent: {
+        display: `flex`, 
+        alignItems: `center`, 
+        flexDirection: `column`
+    }
+});
+
 export default function CountryStats({countryCode}) {
-    const [countryData, setCountryData] = useState('US')
+    const classes = useStyles();
+    const [countryData, setCountryData] = useState('PK')
     const [dataLoading, setDataLoading] = useState(false)
 
     useEffect( () => {
@@ -45,40 +60,40 @@ export default function CountryStats({countryCode}) {
         {console.log("CountryData: ", countryData)}
             <Grid container spacing={3}>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                            <Typography>Infected</Typography>
-                            <Typography>
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="caption2">Infected</Typography>
+                            <Typography variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Confirmed}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                            <Typography>Active</Typography>
-                            <Typography>
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="caption2">Active</Typography>
+                            <Typography variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Active}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                            <Typography>Recovered</Typography>
-                            <Typography>
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="caption2">Recovered</Typography>
+                            <Typography variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Recovered}
                             </Typography>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={3}>
-                    <Card>
-                        <CardContent>
-                            <Typography>Deaths</Typography>
-                            <Typography>
+                    <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                            <Typography variant="caption2">Deaths</Typography>
+                            <Typography variant="h6">
                                 {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Deaths}
                             </Typography>
                         </CardContent>

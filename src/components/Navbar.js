@@ -11,10 +11,14 @@ const useStyles = makeStyles({
   root: {
       position: 'relative',
       alignItems: 'center',
-      paddingTop: `20px`,
-      paddingBottom: `10px`,
+      padding: `20px 5px 15px`,
       boxShadow: "none",
-      borderRadius: "5px 5px 0 0"
+      borderRadius: "5px 5px 0 0",
+      marginLeft: "20%",
+      marginRight: "20%",
+      display: `flex`,
+      justifyContent: `center`,
+      backgroundColor: `mintcream`
   },
 });
 

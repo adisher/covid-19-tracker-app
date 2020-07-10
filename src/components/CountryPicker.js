@@ -5,7 +5,12 @@ import CountryStats from './CountryStats'
 const useStyles = makeStyles({
     select: {
         borderRadius: "0 0 5px 5px",
-        padding: "10px 40%"
+        marginRight: "20%",
+        marginLeft: "20%",
+        display: `flex`,
+        justifyContent: `center`,
+        padding: `5px 5px 10px`,
+        backgroundColor: `mintcream`
     },
 });
 
@@ -40,7 +45,7 @@ export default function CountryPicker() {
         fetchCountryData()
     }, [setCountryData])
 
-    const [countryCode, setCountryCode] = useState('US')
+    const [countryCode, setCountryCode] = useState('PK')
 
     const handleChange = (event) => {
       console.log("setCountry", event.target.value)
