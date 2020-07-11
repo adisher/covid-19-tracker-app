@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2'
+import Chart from 'chart.js';
+
 
 export default function LineChart() {
     const [globalData, setGlobalData] = useState([])
@@ -14,7 +16,9 @@ export default function LineChart() {
             const modData = await apiData.map( (data) => ({
                 confirmed: data.confirmed.total,
                 deaths: data.deaths.total,
-                date: data.reportDate
+                date: data.reportDate,
+                active: data.active,
+                recovered: data.totalRecovered,
             }))
             setGlobalData(modData)
             console.log("apiData", apiData)
@@ -26,23 +30,41 @@ export default function LineChart() {
 
     console.log(globalData, "global")
 
+    Chart.defaults.global.defaultFontColor = 'white';
     const lineChart = (
         globalData[0] ? (
           <Line
             data={{
               labels: globalData.map(({ date }) => date),
-              datasets: [{
-                data: globalData.map((data) => data.confirmed),
-                label: 'Infected',
-                borderColor: 'blue',
-                fill: true,
-              }, {
-                data: globalData.map((data) => data.deaths),
-                label: 'Deaths',
-                borderColor: 'red',
-                backgroundColor: 'rgba(255, 0, 0, 0.5)',
-                fill: true,
-              },
+              datasets: [
+                {
+                    data: globalData.map((data) => data.confirmed),
+                    label: 'Infected',
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.5)',
+                    fill: true,
+                }, 
+                {
+                    data: globalData.map((data) => data.deaths),
+                    label: 'Deaths',
+                    borderColor: 'red',
+                    backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                    fill: true,
+                }, 
+                {
+                    data: globalData.map((data) => data.active),
+                    label: 'Active',
+                    borderColor: 'orange',
+                    backgroundColor: 'rgba(255, 165, 0, 0.5)',
+                    fill: true,
+                },
+                {
+                    data: globalData.map((data) => data.recovered),
+                    label: 'Recovered',
+                    borderColor: 'green',
+                    backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                    fill: true,
+                },
               ],
             }}
             options={{

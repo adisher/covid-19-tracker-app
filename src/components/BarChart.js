@@ -78,13 +78,7 @@ export default function BarChart({countryCode}) {
                             }
                         }],
                     },
-                    legend: { display: false },
-                    title: { 
-                        display: true, 
-                        fontColor: `white`, 
-                        fontSize: 24, 
-                        text: `Current state in ${dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Country_Region}`
-                    }
+                    legend: {display: false}
                 }}
             />
         ) :null
