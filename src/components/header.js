@@ -17,7 +17,7 @@ const Header = () => (
       <h1 
         style={{
           margin: 0, 
-          color: "white",
+          color: "mintcream",
         }}
       >
         Covid-19 Tracker App

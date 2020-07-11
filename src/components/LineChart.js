@@ -30,7 +30,8 @@ export default function LineChart() {
 
     console.log(globalData, "global")
 
-    Chart.defaults.global.defaultFontColor = 'white';
+    Chart.defaults.global.defaultFontColor = 'mintcream';
+
     const lineChart = (
         globalData[0] ? (
           <Line
@@ -73,7 +74,7 @@ export default function LineChart() {
                         display: true,
                         
                         ticks: {
-                           fontColor: `white`, // To format the ticks, coming on the axis/labels which we are passing.
+                           fontColor: `mintcream`, // To format the ticks, coming on the axis/labels which we are passing.
                            fontSize: 14
                         }
                     }],
@@ -81,7 +82,7 @@ export default function LineChart() {
                         display: true,
                         
                         ticks: {
-                           fontColor: `white`, // To format the ticks, coming on the axis/labels which we are passing.
+                           fontColor: `mintcream`, // To format the ticks, coming on the axis/labels which we are passing.
                            fontSize: 14
                         }
                     }],

@@ -52,6 +52,10 @@ export default function GlobalStats() {
         fetchGlobalData()
     }, [setGlobalData])
 
+    var formatter = new Intl.NumberFormat({
+        style: 'text',
+      });
+
     return (
         <>
         <br/>
@@ -61,7 +65,7 @@ export default function GlobalStats() {
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Infected</Typography>
                             <Typography style={{color: `blue`}} variant="h6">
-                                {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Confirmed}
+                                {dataLoading? "Loading" : formatter.format(globalData && globalData.data && globalData.data.summary.globalData.Confirmed)}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -71,7 +75,7 @@ export default function GlobalStats() {
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Active</Typography>
                             <Typography style={{color: `darkOrange`}} variant="h6">
-                                {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Active}
+                                {dataLoading? "Loading" : formatter.format(globalData && globalData.data && globalData.data.summary.globalData.Active)}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -81,7 +85,7 @@ export default function GlobalStats() {
                         <CardContent className={classes.cardContent}>
                         <Typography variant="caption2">Recovered</Typography>
                         <Typography style={{color: `green`}} variant="h6">
-                            {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Recovered}
+                            {dataLoading? "Loading" : formatter.format(globalData && globalData.data && globalData.data.summary.globalData.Recovered)}
                         </Typography>
                         </CardContent>
                     </Card>
@@ -91,7 +95,7 @@ export default function GlobalStats() {
                         <CardContent className={classes.cardContent}>
                         <Typography variant="caption2">Deaths</Typography>
                         <Typography style={{color: `red`}} variant="h6">
-                            {dataLoading? "Loading" : globalData && globalData.data && globalData.data.summary.globalData.Deaths}
+                            {dataLoading? "Loading" : formatter.format(globalData && globalData.data && globalData.data.summary.globalData.Deaths)}
                         </Typography>
                         </CardContent>
                     </Card>

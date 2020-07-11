@@ -65,7 +65,7 @@ export default function BarChart({countryCode}) {
                             display: true,
                             
                             ticks: {
-                               fontColor: `white`, // To format the ticks, coming on the axis/labels which we are passing.
+                               fontColor: `mintcream`, // To format the ticks, coming on the axis/labels which we are passing.
                                fontSize: 14
                             }
                         }],
@@ -73,7 +73,7 @@ export default function BarChart({countryCode}) {
                             display: true,
                             
                             ticks: {
-                               fontColor: `white`, // To format the ticks, coming on the axis/labels which we are passing.
+                               fontColor: `mintcream`, // To format the ticks, coming on the axis/labels which we are passing.
                                fontSize: 14
                             }
                         }],

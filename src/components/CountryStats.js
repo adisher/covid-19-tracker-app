@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Grid, Card, CardContent, Typography, makeStyles } from '@material-ui/core'
 import BarChart from './BarChart';
+import CountUp from 'react-countup';
 
 const useStyles = makeStyles({
     card: {
@@ -55,6 +56,11 @@ export default function CountryStats({countryCode}) {
         fetchCountryData()
     }, [countryCode])
 
+    var formatter = new Intl.NumberFormat({
+        style: 'text',
+      });
+      
+    //   formatter.format(2500)
     return (
         <>
         {console.log("CountryData: ", countryData)}
@@ -64,7 +70,9 @@ export default function CountryStats({countryCode}) {
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Infected</Typography>
                             <Typography style={{color: `blue`}} variant="h6">
-                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Confirmed}
+                            
+                            {dataLoading? "Loading" : formatter.format(countryData && countryData.data && countryData.data.country.Summary.Confirmed)}
+                             
                             </Typography>
                         </CardContent>
                     </Card>
@@ -74,7 +82,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Active</Typography>
                             <Typography style={{color: `darkOrange`}} variant="h6">
-                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Active}
+                                {dataLoading? "Loading" : formatter.format(countryData && countryData.data && countryData.data.country.Summary.Active)}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -84,7 +92,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Recovered</Typography>
                             <Typography style={{color: `green`}} variant="h6">
-                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Recovered}
+                                {dataLoading? "Loading" : formatter.format(countryData && countryData.data && countryData.data.country.Summary.Recovered)}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -94,7 +102,7 @@ export default function CountryStats({countryCode}) {
                         <CardContent className={classes.cardContent}>
                             <Typography variant="caption2">Deaths</Typography>
                             <Typography style={{color: `red`}} variant="h6">
-                                {dataLoading? "Loading" : countryData && countryData.data && countryData.data.country.Summary.Deaths}
+                                {dataLoading? "Loading" : formatter.format(countryData && countryData.data && countryData.data.country.Summary.Deaths)}
                             </Typography>
                         </CardContent>
                     </Card>
