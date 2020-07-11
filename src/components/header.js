@@ -1,6 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
 
-const Header = () => (
+const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `rgba(0, 0, 255, 0.5)`,
@@ -20,10 +21,18 @@ const Header = () => (
           color: "mintcream",
         }}
       >
-        Covid-19 Tracker App
+        {siteTitle}
       </h1>
     </div>
   </header>
 )
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+}
+
+Header.defaultProps = {
+  siteTitle: ``,
+}
 
 export default Header
